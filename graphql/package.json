@@ -1,0 +1,21 @@
+{
+  "name": "blog-site-backend",
+  "version": "1.0.0",
+  "description": "The backend for the company blogsite",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "create-migration": "node ./database/actions/create-migration.js"
+  },
+  "author": "Pratik Dey",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-koa": "^2.19.0",
+    "dotenv": "^8.2.0",
+    "graphql-tools": "^7.0.2",
+    "knex": "^0.21.13",
+    "koa": "^2.13.0",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5"
+  }
+}
