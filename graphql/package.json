@@ -5,12 +5,14 @@
   "main": "app.js",
   "scripts": {
     "test": "test",
-    "create-migration": "node ./database/actions/create-migration.js"
+    "create-migration": "node ./database/actions/create-migration.js",
+    "run-migration": "node ./database/actions/run-migration.js"
   },
   "author": "Pratik Dey",
   "license": "ISC",
   "dependencies": {
     "apollo-server-koa": "^2.19.0",
+    "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "graphql-tools": "^7.0.2",
     "knex": "^0.21.13",
