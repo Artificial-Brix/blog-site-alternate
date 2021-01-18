@@ -16,7 +16,7 @@ VALUES
 
 INSERT INTO users (role_id, email, first_name, last_name)
 VALUES
-(1, 'mcoder@lavishweb.com', 'Miguel', 'Coder');
+(1, 'mcoder@lavishweb.com', 'Sexy', 'Biatch');
 
 INSERT INTO blog_categories (label, description)
 VALUES
