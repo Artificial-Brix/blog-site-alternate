@@ -54,10 +54,17 @@ module.exports = {
     return qry
       .then((data) => {
         if (category_id) {
-          return data.filter((post) =>
-            post.cat_ids.split(",").includes(category_id.toString())
-          );
+          let filter = data.filter((post) => {
+            let statement = post.cat_ids
+              .split(",")
+              .includes(category_id.toString());
+            if (statement) {
+              return post;
+            }
+          });
+          return filter;
         }
+        return data;
       })
       .catch(errorHandler);
   },
