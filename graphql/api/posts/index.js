@@ -1,10 +1,10 @@
 const db = require("../../database/mysql");
 const { errorHandler } = require("../utils");
-
+const intersection = require("lodash/intersection");
 module.exports = {
   getPost: async (id) =>
     await db.select("*").from("blog_posts").where({ id }).catch(errorHandler),
-  getPosts: async (type, category_id) => {
+  getPosts: async (type, category_ids) => {
     let qry = db
       .select(
         "blog_posts.id",
@@ -53,15 +53,20 @@ module.exports = {
 
     return qry
       .then((data) => {
-        if (category_id) {
-          let filter = data.filter((post) => {
-            let statement = post.cat_ids
-              .split(",")
-              .includes(category_id.toString());
-            if (statement) {
-              return post;
-            }
-          });
+        if (category_ids) {
+          let filter = data.filter(
+            (post) =>
+              // let statement = post.cat_ids
+              //   .split(",")
+              //   .includes(category_id.toString());
+              // if (statement) {
+              //   return post;
+              // }
+
+              post.cat_ids &&
+              intersection(post.cat_ids.split(",").map(parseInt), category_ids)
+                .length
+          );
           return filter;
         }
         return data;
